@@ -1,0 +1,252 @@
+package fcfs;
+
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JProgressBar;
+
+public class FCFS extends JFrame {
+	JLabel name;
+	JLabel process, burst, arrival, waiting, turn, progress, completion;
+	JLabel p1,p2,p3,p4;
+	JTextField a,b,c,d;
+	JLabel a1,a2,a3,a4;
+	JLabel w1,w2,w3,w4;
+	JLabel t1,t2,t3,t4;
+	JLabel c1,c2,c3,c4;
+	JLabel twt, ttt, awt, att;
+	JLabel tot1, tot2, tot3, tot4;
+	
+	JProgressBar bar1,bar2,bar3,bar4;
+	JButton start;
+	
+	Font f = new Font("Times New Roman",Font.BOLD,15);
+	Font ef = new Font("Verdana",Font.BOLD,15);
+	
+	public FCFS() {
+		super("Yatol - FCFS Scheduling");
+		
+		name = new JLabel("Francis Yatol - BSIT - 2A");
+		
+		process = new JLabel("Process");
+		p1 = new JLabel("P1");
+		p2 = new JLabel("P2");
+		p3 = new JLabel("P3");
+		p4 = new JLabel("P4");
+		
+		burst = new JLabel("Burst Time");
+		a = new JTextField();
+		b = new JTextField();
+		c = new JTextField();
+		d = new JTextField();
+		
+		arrival = new JLabel("Arrival Time");
+		a1 = new JLabel("0");
+		a2 = new JLabel("0");
+		a3 = new JLabel("0");
+		a4 = new JLabel("0");
+		
+		waiting = new JLabel("Waiting Time");
+		w1 = new JLabel("0");
+		w2 = new JLabel("0");
+		w3 = new JLabel("0");
+		w4 = new JLabel("0");
+		
+		turn = new JLabel("Turnaround Time");
+		t1 = new JLabel("0");
+		t2 = new JLabel("0");
+		t3 = new JLabel("0");
+		t4 = new JLabel("0");
+		
+		progress = new JLabel("Progress");
+		bar1 = new JProgressBar();
+		bar1.setStringPainted(true);
+		bar1.setValue(0);
+		bar2 = new JProgressBar();
+		bar2.setStringPainted(true);
+		bar2.setValue(0);
+		bar3 = new JProgressBar();
+		bar3.setStringPainted(true);
+		bar3.setValue(0);
+		bar4 = new JProgressBar();
+		bar4.setStringPainted(true);
+		bar4.setValue(0);
+		
+		completion = new JLabel("Completion");
+		c1 = new JLabel("Unfinished");
+		c2 = new JLabel("Unfinished");
+		c3 = new JLabel("Unfinished");
+		c4 = new JLabel("Unfinished");
+		
+		twt = new JLabel("Total Waiting Time: ");
+		ttt = new JLabel("Total Turnaround Time: ");
+		awt = new JLabel("Average Waiting Time: ");
+		att = new JLabel("Average Turnaround Time: ");
+		
+		tot1 = new JLabel("0");
+		tot2 = new JLabel("0");
+		tot3 = new JLabel("0");
+		tot4 = new JLabel("0");
+		
+		start = new JButton("START");
+		
+		
+		//FONT
+		name.setFont(ef);
+		process.setFont(f);
+		burst.setFont(f);
+		arrival.setFont(f);
+		waiting.setFont(f);
+		turn.setFont(f);
+		progress.setFont(f);
+		completion.setFont(f);
+		twt.setFont(f);
+		ttt.setFont(f);
+		awt.setFont(f);
+		att.setFont(f);
+		
+		setLayout(null);
+		setSize(920,550);
+		setVisible(true);
+		setResizable(false);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+		name.setBounds(330, 0, 300, 15);
+		
+		process.setBounds(10, 20, 100, 50);
+		p1.setBounds(30, 60, 100, 50);
+		p2.setBounds(30, 110, 100, 50);
+		p3.setBounds(30, 160, 100, 50);
+		p4.setBounds(30, 210, 100, 50);
+		
+		burst.setBounds(100, 20, 100, 50);
+		a.setBounds(100, 77, 80, 20);
+		b.setBounds(100, 127, 80, 20);
+		c.setBounds(100, 177, 80, 20);
+		d.setBounds(100, 227, 80, 20);
+		
+		arrival.setBounds(220, 20, 100, 50);
+		a1.setBounds(260, 60, 100, 50);
+		a2.setBounds(260, 110, 100, 50);
+		a3.setBounds(260, 160, 100, 50);
+		a4.setBounds(260, 210, 100, 50);
+		
+		waiting.setBounds(340, 20, 100, 50);
+		w1.setBounds(380, 60, 100, 50);
+		w2.setBounds(380, 110, 100, 50);
+		w3.setBounds(380, 160, 100, 50);
+		w4.setBounds(380, 210, 100, 50);
+		
+		turn.setBounds(460, 20, 150, 50);
+		t1.setBounds(505, 60, 100, 50);
+		t2.setBounds(505, 110, 100, 50);
+		t3.setBounds(505, 160, 100, 50);
+		t4.setBounds(505, 210, 100, 50);
+		
+		progress.setBounds(660, 20, 100, 50);
+		bar1.setBounds(620, 77, 150, 20);
+		bar2.setBounds(620, 127, 150, 20);
+		bar3.setBounds(620, 177, 150, 20);
+		bar4.setBounds(620, 227, 150, 20);
+		
+		completion.setBounds(810, 20, 100, 50);
+		c1.setBounds(817, 60, 100, 50);
+		c2.setBounds(817, 110, 100, 50);
+		c3.setBounds(817, 160, 100, 50);
+		c4.setBounds(817, 210, 100, 50);
+		
+		twt.setBounds(10, 270, 200, 50);
+		ttt.setBounds(10, 300, 200, 50);
+		awt.setBounds(10, 330, 200, 50);
+		att.setBounds(10, 360, 200, 50);
+		
+		tot1.setBounds(230, 270, 200, 50);
+		tot2.setBounds(230, 300, 200, 50);
+		tot3.setBounds(230, 330, 200, 50);
+		tot4.setBounds(230, 360, 200, 50);
+		
+		start.setBounds(400, 420, 100, 50);
+		
+		add(name);
+		
+		add(process);
+		add(p1);
+		add(p2);
+		add(p3);
+		add(p4);
+		
+		add(burst);
+		add(a);
+		add(b);
+		add(c);
+		add(d);
+		
+		add(arrival);
+		add(a1);
+		add(a2);
+		add(a3);
+		add(a4);
+		
+		add(waiting);
+		add(w1);
+		add(w2);
+		add(w3);
+		add(w4);
+		
+		add(turn);
+		add(t1);
+		add(t2);
+		add(t3);
+		add(t4);
+		
+		add(progress);
+		add(bar1);
+		add(bar2);
+		add(bar3);
+		add(bar4);
+		
+		add(completion);
+		add(c1);
+		add(c2);
+		add(c3);
+		add(c4);
+		
+		add(twt);
+		add(ttt);
+		add(awt);
+		add(att);
+		
+		add(tot1);
+		add(tot2);
+		add(tot3);
+		add(tot4);
+		add(start);
+		add(start);
+		
+	}
+	public void fill() {
+		        
+			int i = 0; 
+		        try { 
+		            while (i <= 100) { 
+		                // fill the menu bar 
+		                bar1.setValue(i + 10); 
+		  
+		                // delay the thread 
+		                Thread.sleep(1000); 
+		                i += 20; 
+		            } 
+		        } 
+		        catch (Exception r) { 
+		        } 
+	}
+	public static void main(String[] args) {
+		FCFS aw = new FCFS();
+		aw.fill();
+		
+	}
+}

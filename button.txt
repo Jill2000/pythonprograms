@@ -1,0 +1,59 @@
+import javax.swing.*;
+
+public class button extends JFrame
+{
+	JButton num[] = new JButton[12];
+    public button()
+    {
+    	super("Withdraw");
+
+    	num[0] = new JButton("1");
+    	num[1] = new JButton("2");
+    	num[2] = new JButton("3");
+    	num[3] = new JButton("4");
+    	num[4] = new JButton("5");
+    	num[5] = new JButton("6");
+    	num[6] = new JButton("7");
+    	num[7] = new JButton("8");
+    	num[8] = new JButton("9");
+    	num[9] = new JButton("0");
+    	num[10] = new JButton(".");
+    	num[11] = new JButton("OK");
+
+    	setLayout(null);
+    	setSize(500,500);
+    	setVisible(true);
+    	setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+    	num[0].setBounds(10,10,50,20); //(loc width, loc hight, size widht, size hight)
+    	num[1].setBounds(70,10,50,20);
+    	num[2].setBounds(130,10,50,20);
+    	num[3].setBounds(10,70,50,20);
+    	num[4].setBounds(70,70,50,20);
+    	num[5].setBounds(130,70,50,20);
+    	num[6].setBounds(10,130,50,20);
+    	num[7].setBounds(70,130,50,20);
+    	num[8].setBounds(130,130,50,20);
+    	num[9].setBounds(10,190,50,20);
+    	num[10].setBounds(70,190,50,20);
+    	num[11].setBounds(130,190,50,20);
+
+    	add(num[0]);
+    	add(num[1]);
+    	add(num[2]);
+    	add(num[3]);
+    	add(num[4]);
+    	add(num[5]);
+    	add(num[6]);
+    	add(num[7]);
+    	add(num[8]);
+    	add(num[9]);
+    	add(num[10]);
+    	add(num[11]);
+
+    }
+    public static void main(String[]args)
+    {
+    	new button();
+    }
+}

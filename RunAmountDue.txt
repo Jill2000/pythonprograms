@@ -1,0 +1,34 @@
+import java.util.*;
+public class RunAmountDue {
+	public static void main(String [] args) {
+		Scanner scan = new Scanner(System.in);
+		
+		AmountDue due = new AmountDue();
+		System.out.println("Press any of the following then enter values seperated by spaces: \n1 - Price only\n2 - Price and quantity\n3 - Price, quantity, and discount amount");
+		int c = scan.nextInt();
+		
+		while(true) {			
+			if(c==1) {
+				double d = scan.nextDouble();
+				System.out.println("Amount due is "+ due.computeAmountDue(d));
+				break;
+			}
+			else if(c==2) {
+				double d = scan.nextDouble();
+				int e = scan.nextInt();
+				System.out.println("Amount due is "+ due.computeAmountDue(d,e));
+				break;
+			}
+			else if(c==3) {
+				double d = scan.nextDouble();
+				int e = scan.nextInt();
+				int f = scan.nextInt();
+				System.out.println("Amount due is "+ due.computeAmountDue(d,e,f));
+				break;
+			}
+			else {
+				System.out.println("Invalid Input");
+			}
+		}		
+	}
+}

@@ -1,0 +1,42 @@
+FruitBasket = ["apple", "orange", "mango", "guava"]
+
+basket=[]
+
+print("Catch and eat any of these fruits: ",FruitBasket)
+s = input("How many fruits would you like to catch? ")
+
+print("Choose a fruit to catch. Press A, O, M, or G.")
+for z in range(int(s)):
+    while True:
+      x = input("Fruit "+str(z+1)+" of "+str(s)+": " )
+        
+      if x.upper() == "A":
+        basket.append("apple")
+        break
+      elif x.upper() == "O":
+        basket.append("orange")
+        break
+      elif x.upper() == "M":
+        basket.append("mango")
+        break
+      elif x.upper() == "G":
+        basket.append("guava")
+        break
+      else:
+        print("Invalid input")
+
+print("Your basket now has: ",basket)
+
+while True:
+    o = input("Press E to eat a fruit. ")
+    if o.upper() == "E":
+
+        basket.pop()
+
+        if not basket:
+            print("No more fruits.")
+            break
+
+        print("Fruits in the basket: ",basket)
+    else:
+        print("Invalid input")

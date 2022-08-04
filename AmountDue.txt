@@ -1,0 +1,22 @@
+public class AmountDue {
+	public static double computeAmountDue(double d){
+		double due = d+(d*.12);
+		return due;
+		
+	}
+	
+	public static double computeAmountDue(double d, int e){
+		double due = (d*e)+(d*.12);
+		return due;
+		
+	}
+	
+	public double computeAmountDue(double d, int e, int f){
+		
+		double due =((d*e)-f)+(d*.12);
+		
+		
+		return due;
+	
+	}
+}
